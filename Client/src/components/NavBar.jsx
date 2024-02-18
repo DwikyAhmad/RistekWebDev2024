@@ -6,14 +6,14 @@ export default function NavBar() {
         <>
             <nav className="navbar bg-dark border-body" data-bs-theme="dark">
                 <div className="container-xl">
-                    <a className="navbar-brand d-flex d-inline-block ms-4" href="/">
+                    <a className="navbar-brand d-flex d-inline-block ms-2 ms-sm-4" href="/">
                         <img
                             src={ristekLogo}
                             alt="Logo"
                             width="22"
                             className="d-inline-block my-1"
                         />
-                        <p className="my-auto ms-4 pop-700">MedSOS</p>
+                        <p className="my-auto ms-3 ms-sm-4 pop-700">Money Manager</p>
                     </a>
 
 
@@ -22,7 +22,7 @@ export default function NavBar() {
                             <div className="rounded-circle d-inline-block align-middle me-2" style={{width: "30px", height: "30px"}}>
                                 <img src={personIcon} alt="" style={{filter: "invert(1)", width: "30px"}} />
                             </div>
-                            <p className="text-light d-inline-block align-middle my-auto">Username</p>
+                            <p className="text-light d-inline-block align-middle my-auto d-none d-sm-inline">Username</p>
                         </button>
                         <ul className="dropdown-menu">
                             <li><a className="dropdown-item" href="#">Profile</a></li>

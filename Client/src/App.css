@@ -34,3 +34,13 @@ textarea::placeholder {
     background: #444;
     border: none;
 }
+
+.scrollbox {
+    width: 650px;
+}
+
+@media (max-width: 576px) {
+    .scrollbox {
+        width: 350px;
+    }
+}
