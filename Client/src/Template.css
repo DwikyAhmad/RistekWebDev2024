@@ -1,0 +1,9 @@
+.scrollbox {
+    width: 650px;
+}
+
+@media (max-width: 576px) {
+    .scrollbox {
+        width: 350px;
+    }
+}

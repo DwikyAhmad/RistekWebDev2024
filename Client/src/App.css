@@ -1,42 +1,36 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body {
+    font-family: "Poppins", sans-serif !important;
+    background-color: #01162d;
+    color: white;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+a {
+    text-decoration: none;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+textarea::placeholder {
+    opacity: 0.5 !important;
+    color: white !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.pop-700 {
+    font-weight: 700;
 }
 
-.card {
-  padding: 2em;
+.pop-300 {
+    font-weight: 300;
 }
 
-.read-the-docs {
-  color: #888;
+.formHeight {
+    height: calc(100vh - 130px);
+}
+
+.dropdown-menu {
+    min-width: 2rem !important;
+    width: 100%;
+}
+
+.accButton {
+    background: #444;
+    border: none;
 }
