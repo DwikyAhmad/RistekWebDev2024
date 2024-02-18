@@ -13,7 +13,7 @@ router
     .post(passport.authenticate("local"),
         (req, res) => {
             console.log(req.user)
-            res.redirect("/api");
+            res.redirect("/");
         })
 
 router

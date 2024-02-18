@@ -26,7 +26,7 @@ export default function NavBar() {
                         </button>
                         <ul className="dropdown-menu">
                             <li><a className="dropdown-item" href="#">Profile</a></li>
-                            <li><a className="dropdown-item" href="/logout">Logout</a></li>
+                            <li><a className="dropdown-item" href="/api/logout">Logout</a></li>
                         </ul>
                     </div>
                 </div>

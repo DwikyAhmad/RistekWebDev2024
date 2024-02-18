@@ -1,3 +1,14 @@
+import { redirect } from "react-router-dom";
+
+export async function loader() {
+    const response = await fetch("/api");
+    if (response.redirected) {
+        return redirect(response.url);
+    }
+    const data = await response.json();
+    return data;
+}
+
 export default function Home() {
     return (
         <>

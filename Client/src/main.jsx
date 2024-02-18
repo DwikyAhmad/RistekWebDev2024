@@ -5,6 +5,7 @@ import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } 
 import Home from './pages/HomePage/Home.jsx';
 import Login from './pages/users/Login.jsx';
 import Register from './pages/users/Register.jsx';
+import {loader as HomeLoader} from './pages/HomePage/Home.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -12,7 +13,7 @@ const router = createBrowserRouter(
       path="/"
       element={<App />}
     >
-      <Route index element={<Home />} />
+      <Route index element={<Home />} loader={HomeLoader}/>
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
 

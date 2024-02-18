@@ -9,6 +9,8 @@ const methodOverride = require("method-override");
 const User = require("./src/models/user");
 const userRouter = require("./src/routes/users");
 const pendapatanRouter = require("./src/routes/pendapatan");
+const { isLoggedIn } = require("./middleware");
+const flash = require("connect-flash");
 
 mongoose
     .connect("mongodb://127.0.0.1:27017/ristekAPI2024")
@@ -32,6 +34,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(session(sessionConfig));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
@@ -40,7 +43,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use("/api", userRouter);
 app.use("/api", pendapatanRouter);
 
-app.get("/api", async (req, res) => {
+app.get("/api", isLoggedIn, async (req, res) => {
     const users = await User.find({});
     res.json({ users });
 })
