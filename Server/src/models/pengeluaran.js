@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const tweetSchema = new Schema(
+const pengeluaranSchema = new Schema(
     {
         body: {
             type: String,
@@ -21,4 +21,4 @@ const tweetSchema = new Schema(
     },
 );
 
-module.exports = mongoose.model("Pendapatan", pengeluaranSchema);
+module.exports = mongoose.model("Pengeluaran", pengeluaranSchema);

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const pengeluaranSchema = new Schema(
+const pemasukanSchema = new Schema(
     {
         body: {
             type: String,
@@ -21,4 +21,4 @@ const pengeluaranSchema = new Schema(
     },
 );
 
-module.exports = mongoose.model("Pengeluaran", pengeluaranSchema);
+module.exports = mongoose.model("Pemasukan", pemasukanSchema);

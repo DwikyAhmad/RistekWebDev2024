@@ -8,9 +8,11 @@ const LocalStrategy = require("passport-local");
 const methodOverride = require("method-override");
 const User = require("./src/models/user");
 const userRouter = require("./src/routes/users");
-const pendapatanRouter = require("./src/routes/pendapatan");
+const pemasukanRouter = require("./src/routes/pemasukan");
+const pengeluaranRouter = require("./src/routes/pengeluaran");
 const { isLoggedIn } = require("./middleware");
 const flash = require("connect-flash");
+const Pengeluaran = require("./src/models/pengeluaran");
 
 mongoose
     .connect("mongodb://127.0.0.1:27017/ristekAPI2024")
@@ -41,11 +43,12 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use("/api", userRouter);
-app.use("/api", pendapatanRouter);
+app.use("/api", pemasukanRouter);
+app.use("/api", pengeluaranRouter);
 
 app.get("/api", isLoggedIn, async (req, res) => {
-    const users = await User.find({});
-    res.json({ users });
+    const listPengeluaran = await Pengeluaran.find({});
+    res.json({ listPengeluaran, user: req.user });
 })
 
 app.all("*", (req, res) => {

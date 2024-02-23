@@ -40,10 +40,20 @@ export default function Register() {
                                     name="password"
                                 />
                             </div>
-                            <div className="d-flex justify-content-end"><a href="/register">Create a new account</a></div>
+                            <div className="mb-3">
+                                <label htmlFor="saldo" className="form-label"
+                                >Saldo Awal</label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="saldo"
+                                    name="saldo"
+                                />
+                            </div>
+                            <div className="d-flex justify-content-end"><a href="/login">Use an existing account</a></div>
                             <div className="d-grid mt-2">
                                 <button type="submit" className="btn btn-primary mt-2">
-                                    Login
+                                    Register
                                 </button>
                             </div>
                         </form>
