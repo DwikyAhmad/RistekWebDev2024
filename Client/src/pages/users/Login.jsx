@@ -30,7 +30,7 @@ export default function Login() {
                                     name="password"
                                 />
                             </div>
-                            <div className="d-flex justify-content-end"><a href="/register">Create a new account</a></div>
+                            <div className="d-flex justify-content-end link-offset-1"><a href="/register">Create a new account</a></div>
                             <div className="d-grid mt-2">
                                 <button type="submit" className="btn btn-primary mt-2">
                                     Login

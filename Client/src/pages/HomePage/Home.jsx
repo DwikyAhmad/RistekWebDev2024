@@ -18,8 +18,6 @@ export default function Home() {
     const isPengeluaran = statusPageAnggaran === "pengeluaran" ? true : false;
 
     const { listPengeluaran, user } = useLoaderData();
-    console.log(listPengeluaran);
-
 
     const changeStatus = () => {
         if (statusPageAnggaran === "pengeluaran") {
@@ -32,7 +30,7 @@ export default function Home() {
 
     return (
         <>
-            <NavBar username={user.username } />
+            <NavBar username={user.username} />
             <div className="container vh-100 mt-5 scrollbox">
                 <div className="row">
                     <div className="col">
@@ -44,7 +42,8 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="row mt-3">
-                    <form action="/api/pengeluaran/" id="anggaran-form" method="POST" className="row" style={{ width: "100% !important", margin: 0 }}>
+                    <form action="/api/pengeluaran/" id="anggaran-form"
+                        method="POST" className="row" style={{ width: "100% !important", margin: 0, padding: 0 }}>
                         <div className="col-md-8">
                             <textarea
                                 className="form-control"
@@ -66,7 +65,8 @@ export default function Home() {
                         <div className="d-grid align-content-end gap-2 col-md-4">
 
                             <div className="d-flex justify-content-end mt-3 mt-md-0">
-                                <a href="#" onClick={changeStatus}>Tambah {isPengeluaran ? "pemasukan?" : "pengeluaran?"}</a>
+                                <a href="#" className="link-offset-1"
+                                    onClick={changeStatus}>Tambah {isPengeluaran ? "pemasukan?" : "pengeluaran?"}</a>
                             </div>
                             <div className="input-group">
                                 <input name="nominal" type="text" className="form-control" aria-label="Indonesia Rupiah" />

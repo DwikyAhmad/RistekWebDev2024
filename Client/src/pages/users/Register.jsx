@@ -52,8 +52,11 @@ export default function Register() {
                                     id="saldo"
                                     name="saldo"
                                 />
+                                <div id="saldoHelp" className="form-text text-info">
+                                    Masukkan saldo awal anda.
+                                </div>
                             </div>
-                            <div className="d-flex justify-content-end"><a href="/login">Use an existing account</a></div>
+                            <div className="d-flex justify-content-end link-offset-1"><a href="/login">Use an existing account</a></div>
                             <div className="d-grid mt-2">
                                 <button type="submit" className="btn btn-primary mt-2">
                                     Register

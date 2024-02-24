@@ -4,10 +4,6 @@ body {
     color: white;
 }
 
-a {
-    text-decoration: none;
-}
-
 textarea::placeholder {
     opacity: 0.5 !important;
     color: white !important;

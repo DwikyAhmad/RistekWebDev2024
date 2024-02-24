@@ -1,4 +1,5 @@
-import ristekLogo from "../assets/Ristek Logo.svg"
+// import ristekLogo from "../assets/Ristek Logo.svg"
+import coinLogo from "../assets/coin.svg"
 import personIcon from "../assets/person-circle.svg"
 
 
@@ -10,10 +11,11 @@ export default function NavBar({ username = ""}) {
                 <div className="container-xl">
                     <a className="navbar-brand d-flex d-inline-block ms-2 ms-sm-4" href="/">
                         <img
-                            src={ristekLogo}
+                            src={coinLogo}
                             alt="Logo"
                             width="22"
                             className="d-inline-block my-1"
+                            style={{filter: "invert(1)", width: "30px"}}
                         />
                         <p className="my-auto ms-3 ms-sm-4 pop-700">Money Manager</p>
                     </a>
