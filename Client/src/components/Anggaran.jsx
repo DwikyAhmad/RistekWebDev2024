@@ -1,4 +1,5 @@
 import personIcon from "../assets/person-circle.svg"
+import trashIcon from "../assets/trash.svg"
 
 export default function Anggaran({ anggaran, tipeAnggaran }) {
     const isPengeluaran = tipeAnggaran === "pengeluaran";
@@ -41,6 +42,14 @@ export default function Anggaran({ anggaran, tipeAnggaran }) {
                                         {new Date(anggaran.createdAt).toLocaleString("en-US", { timeZone: "Asia/Jakarta" })}
                                     </p>
                                 </div>
+                                <form
+                                    className="d-md-inline-block"
+                                    action={`/api/${anggaran._id}/pengeluaran?_method=DELETE`}
+                                    method="POST"
+                                >
+                                    <input className="me-md-2 pt-1" type="image" src={trashIcon} alt="" />
+
+                                </form>
                             </div>
                         </div>
                         <div className="row mt-3">

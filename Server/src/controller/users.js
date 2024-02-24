@@ -10,11 +10,11 @@ module.exports.handleRegister = async (req, res, next) => {
             if (err) {
                 return next(err);
             }
-            // req.flash("success", "Successfully created a new account!")
-            res.redirect("/api");
+            req.flash("success", "Successfully created a new account!")
+            res.redirect("/");
         });
     } catch (e) {
-        // req.flash("error", e.message);
+        req.flash("error", e.message);
         res.redirect("/register");
     }
 };

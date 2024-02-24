@@ -1,6 +1,9 @@
+import NavBar from "../../components/NavBar";
+
 export default function Register() {
     return (
         <>
+            <NavBar />
             <div className="container formHeight">
                 <div className="row formHeight">
                     <div className="col-10 col-md-8 col-lg-6 mx-auto my-auto">

@@ -47,7 +47,7 @@ app.use("/api", pemasukanRouter);
 app.use("/api", pengeluaranRouter);
 
 app.get("/api", isLoggedIn, async (req, res) => {
-    const listPengeluaran = await Pengeluaran.find({});
+    const listPengeluaran = await Pengeluaran.find({ author: req.user._id }).sort({ _id: -1 });
     res.json({ listPengeluaran, user: req.user });
 })
 

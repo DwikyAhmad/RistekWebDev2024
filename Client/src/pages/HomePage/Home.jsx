@@ -1,5 +1,7 @@
 import { redirect, useLoaderData } from "react-router-dom";
 import Anggaran from "../../components/Anggaran";
+import { useState } from "react";
+import NavBar from "../../components/NavBar";
 
 export async function loader() {
     const response = await fetch("/api");
@@ -11,12 +13,26 @@ export async function loader() {
 }
 
 export default function Home() {
+    const [statusPageAnggaran, setStatusPageAnggaran] = useState("pengeluaran");
+
+    const isPengeluaran = statusPageAnggaran === "pengeluaran" ? true : false;
+
     const { listPengeluaran, user } = useLoaderData();
     console.log(listPengeluaran);
 
 
+    const changeStatus = () => {
+        if (statusPageAnggaran === "pengeluaran") {
+            setStatusPageAnggaran("pemasukan");
+        } else {
+            setStatusPageAnggaran("pengeluaran");
+        }
+    }
+
+
     return (
         <>
+            <NavBar username={user.username } />
             <div className="container vh-100 mt-5 scrollbox">
                 <div className="row">
                     <div className="col">
@@ -24,10 +40,11 @@ export default function Home() {
                             Welcome back, <br />
                             <span style={{ color: "#88bfe8" }}>{user.username}</span>
                         </h2>
+                        <h3>Saldo anda: Rp{user.saldo.toLocaleString()}.00</h3>
                     </div>
                 </div>
                 <div className="row mt-3">
-                    <form action="/api/pengeluaran/" id="anggaran-form" method="POST" className="row" style={{width: "100% !important", margin: 0 }}>
+                    <form action="/api/pengeluaran/" id="anggaran-form" method="POST" className="row" style={{ width: "100% !important", margin: 0 }}>
                         <div className="col-md-8">
                             <textarea
                                 className="form-control"
@@ -47,7 +64,10 @@ export default function Home() {
                         </div>
 
                         <div className="d-grid align-content-end gap-2 col-md-4">
-                            <div className="d-flex justify-content-end mt-3 mt-md-0"><a href="#">Tambah pemasukan?</a></div>
+
+                            <div className="d-flex justify-content-end mt-3 mt-md-0">
+                                <a href="#" onClick={changeStatus}>Tambah {isPengeluaran ? "pemasukan?" : "pengeluaran?"}</a>
+                            </div>
                             <div className="input-group">
                                 <input name="nominal" type="text" className="form-control" aria-label="Indonesia Rupiah" />
                                 <span className="input-group-text">IDR</span>
@@ -55,10 +75,10 @@ export default function Home() {
                             <button
                                 type="submit"
                                 form="anggaran-form"
-                                className="btn btn-danger"
+                                className={"btn " + (isPengeluaran ? "btn-danger" : "btn-success")}
                                 style={{ fontWeight: "700", height: "65px", fontSize: "15px" }}
                             >
-                                Tambah Pengeluaran
+                                Tambah {isPengeluaran ? "Pengeluaran" : "Pemasukan"}
                                 <img
                                     src="images/sendIcon.svg"
                                     alt=""
