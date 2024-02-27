@@ -11,13 +11,8 @@ module.exports.createPengeluaran = async (req, res) => {
     await pengeluaran.save();
     await user.save();
 
-    res.redirect("/")
+    res.redirect("/");
 };
-
-module.exports.getPengeluaran = async (req, res) => {
-    const pengeluaran = await Pengeluaran.find({});
-    res.send(pengeluaran);
-}
 
 module.exports.deletePengeluaran = async (req, res) => {
     const { id } = req.params;
@@ -30,5 +25,5 @@ module.exports.deletePengeluaran = async (req, res) => {
     await Pengeluaran.findByIdAndDelete(id);
     await user.save();
 
-    res.redirect("/")
+    res.redirect("/");
 }

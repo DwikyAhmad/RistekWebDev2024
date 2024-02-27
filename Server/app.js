@@ -13,6 +13,7 @@ const pengeluaranRouter = require("./src/routes/pengeluaran");
 const { isLoggedIn } = require("./middleware");
 const flash = require("connect-flash");
 const Pengeluaran = require("./src/models/pengeluaran");
+const Pemasukan = require("./src/models/pemasukan");
 
 mongoose
     .connect("mongodb://127.0.0.1:27017/ristekAPI2024")
@@ -48,7 +49,8 @@ app.use("/api", pengeluaranRouter);
 
 app.get("/api", isLoggedIn, async (req, res) => {
     const listPengeluaran = await Pengeluaran.find({ author: req.user._id }).sort({ _id: -1 });
-    res.json({ listPengeluaran, user: req.user });
+    const listPemasukan = await Pemasukan.find({ author: req.user._id }).sort({ _id: -1 });
+    res.json({ listPengeluaran, listPemasukan, user: req.user });
 })
 
 app.all("*", (req, res) => {

@@ -17,7 +17,8 @@ export default function Home() {
 
     const isPengeluaran = statusPageAnggaran === "pengeluaran" ? true : false;
 
-    const { listPengeluaran, user } = useLoaderData();
+    let { listPengeluaran, listPemasukan, user } = useLoaderData();
+
 
     const changeStatus = () => {
         if (statusPageAnggaran === "pengeluaran") {
@@ -26,7 +27,6 @@ export default function Home() {
             setStatusPageAnggaran("pengeluaran");
         }
     }
-
 
     return (
         <>
@@ -42,7 +42,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="row mt-3">
-                    <form action="/api/pengeluaran/" id="anggaran-form"
+                    <form action={`/api/${statusPageAnggaran}/`} id="anggaran-form"
                         method="POST" className="row" style={{ width: "100% !important", margin: 0, padding: 0 }}>
                         <div className="col-md-8">
                             <textarea
@@ -90,7 +90,8 @@ export default function Home() {
                     </form>
                 </div>
 
-                {listPengeluaran.map((pengeluaran) => <Anggaran key={pengeluaran._id} anggaran={pengeluaran} tipeAnggaran={"pengeluaran"} />)}
+                {isPengeluaran && listPengeluaran.map((pengeluaran) => <Anggaran key={pengeluaran._id} anggaran={pengeluaran} tipeAnggaran={"pengeluaran"} />)}
+                {!isPengeluaran && listPemasukan.map((pemasukan) => <Anggaran key={pemasukan._id} anggaran={pemasukan} tipeAnggaran={"pemasukan"} />)}
             </div>
         </>
     )

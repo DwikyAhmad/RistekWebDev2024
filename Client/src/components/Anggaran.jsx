@@ -44,7 +44,7 @@ export default function Anggaran({ anggaran, tipeAnggaran }) {
                                 </div>
                                 <form
                                     className="d-md-inline-block"
-                                    action={`/api/${anggaran._id}/pengeluaran?_method=DELETE`}
+                                    action={`/api/${anggaran._id}/${tipeAnggaran}?_method=DELETE`}
                                     method="POST"
                                 >
                                     <input className="me-md-2 pt-1" type="image" src={trashIcon} alt="" />
@@ -56,7 +56,7 @@ export default function Anggaran({ anggaran, tipeAnggaran }) {
                             <div className="col">
                                 <p>{anggaran.body}</p>
                                 <p className={isPengeluaran ? "text-danger" : "text-success"}>
-                                    {isPengeluaran && "-"}Rp{anggaran.nominal.toLocaleString()}.00</p>
+                                    {isPengeluaran ? "-" : "+"}Rp{anggaran.nominal.toLocaleString()}.00</p>
                             </div>
                         </div>
                     </div>
